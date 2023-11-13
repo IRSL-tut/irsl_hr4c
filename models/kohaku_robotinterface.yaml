@@ -1,0 +1,66 @@
+robot_model:
+  name: kohaku # ロボット名
+  url: 'file:///userdir/models/kohaku_dualarm.body'
+  class: KohakuModel
+  import: models.kohaku_model
+
+# /kohaku_leftarm/follow_joint_trajectory
+# /kohaku_lefthand/follow_joint_trajectory
+# /kohaku_rightarm/follow_joint_trajectory
+# /kohaku_righthand/follow_joint_trajectory
+
+joint_groups:
+  -
+    name: leftarm
+    topic: /kohaku_leftarm/command
+    type: command
+    joint_names: [ 'left_shoulder_yaw', 'left_shoulder_pitch', 'left_elbow_pitch', 'left_wrist_yaw', 'left_wrist_pitch', 'left_hand_yaw' ]
+  -
+    name: lefthand
+    topic: /kohaku_lefthand/command
+    type: command
+    joint_names: [ 'left_l_finger_joint', 'left_r_finger_joint' ]
+  -
+    name: rightarm
+    topic: /kohaku_rightarm/command
+    type: command
+    joint_names: [ 'right_shoulder_yaw', 'right_shoulder_pitch', 'right_elbow_pitch', 'right_wrist_yaw', 'right_wrist_pitch', 'right_hand_yaw' ]
+  -
+    name: righthand
+    topic: /kohaku_righthand/command
+    type: command
+    joint_names: [ 'right_l_finger_joint', 'right_r_finger_joint' ]
+  -
+    name: arms
+    type: combined
+    groups: ['leftarm', 'rightarm']
+  -
+    name: hands
+    type: combined
+    groups: ['lefthand', 'righthand']
+  -
+    name: default
+    type: combined
+    groups: ['leftarm', 'rightarm', 'lefthand', 'righthand']
+
+devices:
+  -
+    topic: /joint_states
+    class: JointState
+    name: joint_state
+  -
+    topic: /kohaku_leftarm/state
+    class: JointTrajectoryState
+    name: leftarm_state
+  -
+    topic: /kohaku_rightarm/state
+    class: JointTrajectoryState
+    name: rightarm_state
+  -
+    topic: /kohaku_lefthand/state
+    class: JointTrajectoryState
+    name: lefthand_state
+  -
+    topic: /kohaku_righthand/state
+    class: JointTrajectoryState
+    name: righthand_state

@@ -1,0 +1,169 @@
+--- kohaku_dualarm.org.body	2023-11-13 23:25:11.273738869 +0900
++++ kohaku_dualarm.body	2023-11-13 23:25:11.273738869 +0900
+@@ -29,6 +29,12 @@
+                 elements: 
+                   - 
+                     type: Shape
++                    appearance:
++                      material:
++                        ambient: 0.1
++                        diffuse: [ 0.1, 0.1, 0.1 ]
++                        #specular: [ 0.2, 0.2, 0.2 ]
++                        #specular_exponent: 2
+                     geometry: 
+                       type: Resource
+                       uri: "resource/base_link.scen"
+@@ -72,6 +78,12 @@
+                 elements: 
+                   - 
+                     type: Shape
++                    appearance: &MAT_A
++                      material:
++                        ambient: 0.15
++                        diffuse: [ 0.15, 0.15, 0.15 ]
++                        specular: [ 0.15, 0.15, 0.15 ]
++                        specular_exponent: 2
+                     geometry: 
+                       type: Resource
+                       uri: "resource/left_base_frame_1.scen"
+@@ -117,6 +129,7 @@
+                 elements: 
+                   - 
+                     type: Shape
++                    appearance: *MAT_A
+                     geometry: 
+                       type: Resource
+                       uri: "resource/left_shoulder_link_1.scen"
+@@ -167,6 +180,7 @@
+                 elements: 
+                   - 
+                     type: Shape
++                    appearance: *MAT_A
+                     geometry: 
+                       type: Resource
+                       uri: "resource/left_upperarm_link_1.scen"
+@@ -217,6 +231,7 @@
+                 elements: 
+                   - 
+                     type: Shape
++                    appearance: *MAT_A
+                     geometry: 
+                       type: Resource
+                       uri: "resource/left_forearm_link_1.scen"
+@@ -267,6 +282,7 @@
+                 elements: 
+                   - 
+                     type: Shape
++                    appearance: *MAT_A
+                     geometry: 
+                       type: Resource
+                       uri: "resource/left_wrist_yaw_link_1.scen"
+@@ -317,6 +333,7 @@
+                 elements: 
+                   - 
+                     type: Shape
++                    appearance: *MAT_A
+                     geometry: 
+                       type: Resource
+                       uri: "resource/left_wrist_pitch_link_1.scen"
+@@ -367,6 +384,7 @@
+                 elements: 
+                   - 
+                     type: Shape
++                    appearance: *MAT_A
+                     geometry: 
+                       type: Resource
+                       uri: "resource/left_hand_palm_link_1.scen"
+@@ -417,6 +435,12 @@
+                 elements: 
+                   - 
+                     type: Shape
++                    appearance: &MAT_B
++                      material:
++                        ambient: 0.4
++                        diffuse: [ 0.4, 0.4, 0.4 ]
++                        specular: [ 0.0, 0.0, 0.0 ]
++                        specular_exponent: 0.1
+                     geometry: 
+                       type: Resource
+                       uri: "resource/left_r_finger_link_1.scen"
+@@ -467,6 +491,7 @@
+                 elements: 
+                   - 
+                     type: Shape
++                    appearance: *MAT_B
+                     geometry: 
+                       type: Resource
+                       uri: "resource/left_l_finger_link_1.scen"
+@@ -517,6 +542,7 @@
+                 elements: 
+                   - 
+                     type: Shape
++                    appearance: *MAT_A
+                     geometry: 
+                       type: Resource
+                       uri: "resource/right_base_frame_1.scen"
+@@ -562,6 +588,7 @@
+                 elements: 
+                   - 
+                     type: Shape
++                    appearance: *MAT_A
+                     geometry: 
+                       type: Resource
+                       uri: "resource/right_shoulder_link_1.scen"
+@@ -612,6 +639,7 @@
+                 elements: 
+                   - 
+                     type: Shape
++                    appearance: *MAT_A
+                     geometry: 
+                       type: Resource
+                       uri: "resource/right_upperarm_link_1.scen"
+@@ -662,6 +690,7 @@
+                 elements: 
+                   - 
+                     type: Shape
++                    appearance: *MAT_A
+                     geometry: 
+                       type: Resource
+                       uri: "resource/right_forearm_link_1.scen"
+@@ -712,6 +741,7 @@
+                 elements: 
+                   - 
+                     type: Shape
++                    appearance: *MAT_A
+                     geometry: 
+                       type: Resource
+                       uri: "resource/right_wrist_yaw_link_1.scen"
+@@ -762,6 +792,7 @@
+                 elements: 
+                   - 
+                     type: Shape
++                    appearance: *MAT_A
+                     geometry: 
+                       type: Resource
+                       uri: "resource/right_wrist_pitch_link_1.scen"
+@@ -812,6 +843,7 @@
+                 elements: 
+                   - 
+                     type: Shape
++                    appearance: *MAT_A
+                     geometry: 
+                       type: Resource
+                       uri: "resource/right_hand_palm_link_1.scen"
+@@ -862,6 +894,7 @@
+                 elements: 
+                   - 
+                     type: Shape
++                    appearance: *MAT_B
+                     geometry: 
+                       type: Resource
+                       uri: "resource/right_r_finger_link_1.scen"
+@@ -912,6 +945,7 @@
+                 elements: 
+                   - 
+                     type: Shape
++                    appearance: *MAT_B
+                     geometry: 
+                       type: Resource
+                       uri: "resource/right_l_finger_link_1.scen"

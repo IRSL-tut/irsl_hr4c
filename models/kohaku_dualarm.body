@@ -1,0 +1,1210 @@
+format: ChoreonoidBody
+format_version: 2.0
+angle_unit: degree
+name: "kohaku_dualarm"
+root_link: "world"
+links: 
+  - 
+    name: "world"
+    joint_name: world
+    joint_type: free
+    mass: 0.001
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [ 
+      1e-09, 0, 0, 
+      0, 1e-09, 0, 
+      0, 0, 1e-09 ]
+  - 
+    name: "base_link"
+    elements: 
+      - 
+        type: Visual
+        elements: 
+          - 
+            type: Transform
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    appearance:
+                      material:
+                        ambient: 0.1
+                        diffuse: [ 0.1, 0.1, 0.1 ]
+                        #specular: [ 0.2, 0.2, 0.2 ]
+                        #specular_exponent: 2
+                    geometry: 
+                      type: Resource
+                      uri: "resource/base_link.scen"
+      - 
+        type: Collision
+        elements: 
+          - 
+            type: Transform
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    geometry: 
+                      type: Resource
+                      uri: "resource/base_link.scen"
+    parent: world
+    joint_name: world_to_base_link
+    joint_type: fixed
+    mass: 129.899
+    center_of_mass: [ -0.150799, 0.00263225, 0.120914 ]
+    inertia: [ 
+      9.97954, -0.046433, -1.76444, 
+      -0.046433, 9.36588, -0.02707, 
+      -1.76444, -0.02707, 9.52027 ]
+  - 
+    name: "left_base_frame"
+    elements: 
+      - 
+        type: Visual
+        elements: 
+          - 
+            type: Transform
+            translation: [ -0.033, -0.031, -0.36 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    appearance: &MAT_A
+                      material:
+                        ambient: 0.15
+                        diffuse: [ 0.15, 0.15, 0.15 ]
+                        specular: [ 0.15, 0.15, 0.15 ]
+                        specular_exponent: 2
+                    geometry: 
+                      type: Resource
+                      uri: "resource/left_base_frame_1.scen"
+      - 
+        type: Collision
+        elements: 
+          - 
+            type: Transform
+            translation: [ -0.033, -0.031, -0.36 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    geometry: 
+                      type: Resource
+                      uri: "resource/left_base_frame_1.scen"
+    parent: base_link
+    translation: [ 0.033, 0.031, 0.326 ]
+    joint_name: left_arm_fix
+    joint_type: fixed
+    mass: 25.9955
+    center_of_mass: [ -0.0481041, 0.0857156, -0.0930651 ]
+    inertia: [ 
+      0.146903, -9.9e-05, -8.9e-05, 
+      -9.9e-05, 0.101347, -0.009456, 
+      -8.9e-05, -0.009456, 0.086479 ]
+  - 
+    name: "left_shoulder_link"
+    elements: 
+      - 
+        type: Visual
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, -0.165, -0.360019 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    appearance: *MAT_A
+                    geometry: 
+                      type: Resource
+                      uri: "resource/left_shoulder_link_1.scen"
+      - 
+        type: Collision
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, -0.165, -0.360019 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    geometry: 
+                      type: Resource
+                      uri: "resource/left_shoulder_link_1.scen"
+    parent: left_base_frame
+    translation: [ -0.048, 0.134, 1.9e-05 ]
+    joint_name: left_shoulder_yaw
+    joint_type: revolute
+    joint_axis: [ 0, -0.00014, 1 ]
+    joint_id: 0
+    joint_range: [ -50, 160 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 100
+    mass: 4.59923
+    center_of_mass: [ -0.000248372, 0.00259996, 0.0765629 ]
+    inertia: [ 
+      0.018029, 3.5e-05, 2.8e-05, 
+      3.5e-05, 0.017921, 0.000417, 
+      2.8e-05, 0.000417, 0.01062 ]
+  - 
+    name: "left_upperarm_link"
+    elements: 
+      - 
+        type: Visual
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, -0.16498, -0.502019 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    appearance: *MAT_A
+                    geometry: 
+                      type: Resource
+                      uri: "resource/left_upperarm_link_1.scen"
+      - 
+        type: Collision
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, -0.16498, -0.502019 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    geometry: 
+                      type: Resource
+                      uri: "resource/left_upperarm_link_1.scen"
+    parent: left_shoulder_link
+    translation: [ 0, -2e-05, 0.142 ]
+    joint_name: left_shoulder_pitch
+    joint_type: revolute
+    joint_axis: [ -0, 1, 0.00014 ]
+    joint_id: 1
+    joint_range: [ -44.9772, 104.966 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 100
+    mass: 1.64642
+    center_of_mass: [ 5.07591e-05, 0.00555517, 0.0609336 ]
+    inertia: [ 
+      0.012435, 2e-06, 5e-06, 
+      2e-06, 0.01254, -0.000385, 
+      5e-06, -0.000385, 0.000862 ]
+  - 
+    name: "left_forearm_link"
+    elements: 
+      - 
+        type: Visual
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, -0.164945, -0.752019 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    appearance: *MAT_A
+                    geometry: 
+                      type: Resource
+                      uri: "resource/left_forearm_link_1.scen"
+      - 
+        type: Collision
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, -0.164945, -0.752019 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    geometry: 
+                      type: Resource
+                      uri: "resource/left_forearm_link_1.scen"
+    parent: left_upperarm_link
+    translation: [ 0, -3.5e-05, 0.25 ]
+    joint_name: left_elbow_pitch
+    joint_type: revolute
+    joint_axis: [ -0, 1, 0.00014 ]
+    joint_id: 2
+    joint_range: [ 24.981, 154.985 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 100
+    mass: 0.514756
+    center_of_mass: [ -0.00286297, -0.00298495, 0.0665229 ]
+    inertia: [ 
+      0.001435, 1e-06, -4.1e-05, 
+      1e-06, 0.001418, -5.7e-05, 
+      -4.1e-05, -5.7e-05, 0.000194 ]
+  - 
+    name: "left_wrist_yaw_link"
+    elements: 
+      - 
+        type: Visual
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, -0.164874, -0.902019 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    appearance: *MAT_A
+                    geometry: 
+                      type: Resource
+                      uri: "resource/left_wrist_yaw_link_1.scen"
+      - 
+        type: Collision
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, -0.164874, -0.902019 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    geometry: 
+                      type: Resource
+                      uri: "resource/left_wrist_yaw_link_1.scen"
+    parent: left_forearm_link
+    translation: [ 0, -7.1e-05, 0.15 ]
+    joint_name: left_wrist_yaw
+    joint_type: revolute
+    joint_axis: [ 0, -0.00014, 1 ]
+    joint_id: 3
+    joint_range: [ -119.977, 119.977 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 100
+    mass: 1.01975
+    center_of_mass: [ -0.00121239, 0.00799629, 0.0549338 ]
+    inertia: [ 
+      0.001319, 7e-06, 2.4e-05, 
+      7e-06, 0.001172, -0.000192, 
+      2.4e-05, -0.000192, 0.000585 ]
+  - 
+    name: "left_wrist_pitch_link"
+    elements: 
+      - 
+        type: Visual
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, -0.16486, -1.002019 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    appearance: *MAT_A
+                    geometry: 
+                      type: Resource
+                      uri: "resource/left_wrist_pitch_link_1.scen"
+      - 
+        type: Collision
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, -0.16486, -1.002019 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    geometry: 
+                      type: Resource
+                      uri: "resource/left_wrist_pitch_link_1.scen"
+    parent: left_wrist_yaw_link
+    translation: [ 0, -1.4e-05, 0.1 ]
+    joint_name: left_wrist_pitch
+    joint_type: revolute
+    joint_axis: [ -0, 1, 0.00014 ]
+    joint_id: 4
+    joint_range: [ -59.9887, 59.9887 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 100
+    mass: 0.389599
+    center_of_mass: [ 4.65268e-05, 0.00052121, 0.0300203 ]
+    inertia: [ 
+      0.000199, 0, 1e-06, 
+      0, 0.000188, -6e-06, 
+      1e-06, -6e-06, 0.000103 ]
+  - 
+    name: "left_hand_palm_link"
+    elements: 
+      - 
+        type: Visual
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, -0.164851, -1.067019 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    appearance: *MAT_A
+                    geometry: 
+                      type: Resource
+                      uri: "resource/left_hand_palm_link_1.scen"
+      - 
+        type: Collision
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, -0.164851, -1.067019 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    geometry: 
+                      type: Resource
+                      uri: "resource/left_hand_palm_link_1.scen"
+    parent: left_wrist_pitch_link
+    translation: [ 0, -9e-06, 0.065 ]
+    joint_name: left_hand_yaw
+    joint_type: revolute
+    joint_axis: [ -0, -0.00014, 1 ]
+    joint_id: 5
+    joint_range: [ -169.997, 169.997 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 100
+    mass: 0.321355
+    center_of_mass: [ 0.000231857, -6.8284e-05, 0.0176678 ]
+    inertia: [ 
+      0.000221, 0, 0, 
+      0, 5.4e-05, 0, 
+      0, 0, 0.000213 ]
+  - 
+    name: "left_r_finger_link"
+    elements: 
+      - 
+        type: Visual
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, -0.133848, -1.089074 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    appearance: &MAT_B
+                      material:
+                        ambient: 0.4
+                        diffuse: [ 0.4, 0.4, 0.4 ]
+                        specular: [ 0.0, 0.0, 0.0 ]
+                        specular_exponent: 0.1
+                    geometry: 
+                      type: Resource
+                      uri: "resource/left_r_finger_link_1.scen"
+      - 
+        type: Collision
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, -0.133848, -1.089074 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    geometry: 
+                      type: Resource
+                      uri: "resource/left_r_finger_link_1.scen"
+    parent: left_hand_palm_link
+    translation: [ 0, -0.031003, 0.022055 ]
+    joint_name: left_r_finger_joint
+    joint_type: revolute
+    joint_axis: [ 1, 0, 0 ]
+    joint_id: 6
+    joint_range: [ -11.3446, 89.9544 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 100
+    mass: 0.0771998
+    center_of_mass: [ 0.000157454, 0.00686231, 0.0361845 ]
+    inertia: [ 
+      2e-05, 0, 0, 
+      0, 2.8e-05, -4e-06, 
+      0, -4e-06, 1.5e-05 ]
+  - 
+    name: "left_l_finger_link"
+    elements: 
+      - 
+        type: Visual
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, -0.195848, -1.089083 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    appearance: *MAT_B
+                    geometry: 
+                      type: Resource
+                      uri: "resource/left_l_finger_link_1.scen"
+      - 
+        type: Collision
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, -0.195848, -1.089083 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    geometry: 
+                      type: Resource
+                      uri: "resource/left_l_finger_link_1.scen"
+    parent: left_hand_palm_link
+    translation: [ 0, 0.030997, 0.022064 ]
+    joint_name: left_l_finger_joint
+    joint_type: revolute
+    joint_axis: [ -1, -0, -0 ]
+    joint_id: 7
+    joint_range: [ -11.3446, 89.9544 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 100
+    mass: 0.0771998
+    center_of_mass: [ -0.000157454, -0.00687207, 0.0361822 ]
+    inertia: [ 
+      2e-05, 0, 0, 
+      0, 2.8e-05, 4e-06, 
+      0, 4e-06, 1.5e-05 ]
+  - 
+    name: "right_base_frame"
+    elements: 
+      - 
+        type: Visual
+        elements: 
+          - 
+            type: Transform
+            translation: [ -0.033, 0.031, -0.36 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    appearance: *MAT_A
+                    geometry: 
+                      type: Resource
+                      uri: "resource/right_base_frame_1.scen"
+      - 
+        type: Collision
+        elements: 
+          - 
+            type: Transform
+            translation: [ -0.033, 0.031, -0.36 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    geometry: 
+                      type: Resource
+                      uri: "resource/right_base_frame_1.scen"
+    parent: base_link
+    translation: [ 0.033, -0.031, 0.326 ]
+    joint_name: right_arm_fix
+    joint_type: fixed
+    mass: 25.9968
+    center_of_mass: [ -0.0478952, -0.0857043, -0.093075 ]
+    inertia: [ 
+      0.146909, -9.9e-05, 8.9e-05, 
+      -9.9e-05, 0.101349, 0.00946, 
+      8.9e-05, 0.00946, 0.086487 ]
+  - 
+    name: "right_shoulder_link"
+    elements: 
+      - 
+        type: Visual
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, 0.165, -0.36 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    appearance: *MAT_A
+                    geometry: 
+                      type: Resource
+                      uri: "resource/right_shoulder_link_1.scen"
+      - 
+        type: Collision
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, 0.165, -0.36 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    geometry: 
+                      type: Resource
+                      uri: "resource/right_shoulder_link_1.scen"
+    parent: right_base_frame
+    translation: [ -0.048, -0.134, 0 ]
+    joint_name: right_shoulder_yaw
+    joint_type: revolute
+    joint_axis: [ 0, -0, 1 ]
+    joint_id: 8
+    joint_range: [ -159.97, 49.9619 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 100
+    mass: 4.59908
+    center_of_mass: [ -0.000249545, 0.00261203, 0.076563 ]
+    inertia: [ 
+      0.018029, 3.5e-05, 2.8e-05, 
+      3.5e-05, 0.017921, 0.000416, 
+      2.8e-05, 0.000416, 0.010619 ]
+  - 
+    name: "right_upperarm_link"
+    elements: 
+      - 
+        type: Visual
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, 0.165, -0.502 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    appearance: *MAT_A
+                    geometry: 
+                      type: Resource
+                      uri: "resource/right_upperarm_link_1.scen"
+      - 
+        type: Collision
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, 0.165, -0.502 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    geometry: 
+                      type: Resource
+                      uri: "resource/right_upperarm_link_1.scen"
+    parent: right_shoulder_link
+    translation: [ 0, 0, 0.142 ]
+    joint_name: right_shoulder_pitch
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 9
+    joint_range: [ -44.9772, 104.966 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 100
+    mass: 1.32981
+    center_of_mass: [ 6.28442e-05, 0.00683576, 0.075452 ]
+    inertia: [ 
+      0.010625, 2e-06, 6e-06, 
+      2e-06, 0.010715, -0.000257, 
+      6e-06, -0.000257, 0.000507 ]
+  - 
+    name: "right_forearm_link"
+    elements: 
+      - 
+        type: Visual
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, 0.165, -0.752 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    appearance: *MAT_A
+                    geometry: 
+                      type: Resource
+                      uri: "resource/right_forearm_link_1.scen"
+      - 
+        type: Collision
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, 0.165, -0.752 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    geometry: 
+                      type: Resource
+                      uri: "resource/right_forearm_link_1.scen"
+    parent: right_upperarm_link
+    translation: [ 0, 0, 0.25 ]
+    joint_name: right_elbow_pitch
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 10
+    joint_range: [ 24.981, 154.985 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 100
+    mass: 0.514765
+    center_of_mass: [ -0.00286292, -0.00297688, 0.0665232 ]
+    inertia: [ 
+      0.001435, 1e-06, -4.1e-05, 
+      1e-06, 0.001418, -5.7e-05, 
+      -4.1e-05, -5.7e-05, 0.000194 ]
+  - 
+    name: "right_wrist_yaw_link"
+    elements: 
+      - 
+        type: Visual
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, 0.16505, -0.902 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    appearance: *MAT_A
+                    geometry: 
+                      type: Resource
+                      uri: "resource/right_wrist_yaw_link_1.scen"
+      - 
+        type: Collision
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, 0.16505, -0.902 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    geometry: 
+                      type: Resource
+                      uri: "resource/right_wrist_yaw_link_1.scen"
+    parent: right_forearm_link
+    translation: [ 0, -5e-05, 0.15 ]
+    joint_name: right_wrist_yaw
+    joint_type: revolute
+    joint_axis: [ 0, 0, 1 ]
+    joint_id: 11
+    joint_range: [ -119.977, 119.977 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 100
+    mass: 1.0237
+    center_of_mass: [ -0.00120771, 0.00800572, 0.0550085 ]
+    inertia: [ 
+      0.001322, 7e-06, 2.4e-05, 
+      7e-06, 0.001173, -0.000192, 
+      2.4e-05, -0.000192, 0.000586 ]
+  - 
+    name: "right_wrist_pitch_link"
+    elements: 
+      - 
+        type: Visual
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, 0.16505, -1.002 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    appearance: *MAT_A
+                    geometry: 
+                      type: Resource
+                      uri: "resource/right_wrist_pitch_link_1.scen"
+      - 
+        type: Collision
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, 0.16505, -1.002 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    geometry: 
+                      type: Resource
+                      uri: "resource/right_wrist_pitch_link_1.scen"
+    parent: right_wrist_yaw_link
+    translation: [ 0, 0, 0.1 ]
+    joint_name: right_wrist_pitch
+    joint_type: revolute
+    joint_axis: [ -0, 1, 0 ]
+    joint_id: 12
+    joint_range: [ -59.9887, 59.9887 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 100
+    mass: 0.388894
+    center_of_mass: [ 4.66111e-05, 0.000526024, 0.0300277 ]
+    inertia: [ 
+      0.000199, 0, 1e-06, 
+      0, 0.000188, -6e-06, 
+      1e-06, -6e-06, 0.000103 ]
+  - 
+    name: "right_hand_palm_link"
+    elements: 
+      - 
+        type: Visual
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, 0.16505, -1.067 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    appearance: *MAT_A
+                    geometry: 
+                      type: Resource
+                      uri: "resource/right_hand_palm_link_1.scen"
+      - 
+        type: Collision
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, 0.16505, -1.067 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    geometry: 
+                      type: Resource
+                      uri: "resource/right_hand_palm_link_1.scen"
+    parent: right_wrist_pitch_link
+    translation: [ 0, 0, 0.065 ]
+    joint_name: right_hand_yaw
+    joint_type: revolute
+    joint_axis: [ -0, 0, 1 ]
+    joint_id: 13
+    joint_range: [ -169.997, 169.997 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 100
+    mass: 0.31647
+    center_of_mass: [ -2.21884e-11, -6.70876e-05, 0.0176003 ]
+    inertia: [ 
+      0.000216, 0, 0, 
+      0, 5.3e-05, 0, 
+      0, 0, 0.000207 ]
+  - 
+    name: "right_r_finger_link"
+    elements: 
+      - 
+        type: Visual
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, 0.19605, -1.08906 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    appearance: *MAT_B
+                    geometry: 
+                      type: Resource
+                      uri: "resource/right_r_finger_link_1.scen"
+      - 
+        type: Collision
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, 0.19605, -1.08906 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    geometry: 
+                      type: Resource
+                      uri: "resource/right_r_finger_link_1.scen"
+    parent: right_hand_palm_link
+    translation: [ 0, -0.031, 0.02206 ]
+    joint_name: right_r_finger_joint
+    joint_type: revolute
+    joint_axis: [ 1, 0, 0 ]
+    joint_id: 14
+    joint_range: [ -11.3446, 89.9544 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 100
+    mass: 0.0771998
+    center_of_mass: [ 0.000157454, 0.00686719, 0.0361831 ]
+    inertia: [ 
+      2e-05, 0, 0, 
+      0, 2.8e-05, -4e-06, 
+      0, -4e-06, 1.5e-05 ]
+  - 
+    name: "right_l_finger_link"
+    elements: 
+      - 
+        type: Visual
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, 0.13405, -1.08906 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    appearance: *MAT_B
+                    geometry: 
+                      type: Resource
+                      uri: "resource/right_l_finger_link_1.scen"
+      - 
+        type: Collision
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.015, 0.13405, -1.08906 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    geometry: 
+                      type: Resource
+                      uri: "resource/right_l_finger_link_1.scen"
+    parent: right_hand_palm_link
+    translation: [ 0, 0.031, 0.02206 ]
+    joint_name: right_l_finger_joint
+    joint_type: revolute
+    joint_axis: [ -1, -0, -0 ]
+    joint_id: 15
+    joint_range: [ -11.3446, 89.9544 ]
+    max_joint_velocity: 5729.58
+    max_joint_effort: 100
+    mass: 0.0771998
+    center_of_mass: [ -0.000157454, -0.00686719, 0.0361831 ]
+    inertia: [ 
+      2e-05, 0, 0, 
+      0, 2.8e-05, 4e-06, 
+      0, 4e-06, 1.5e-05 ]
+  - 
+    name: "camera_base"
+    elements: 
+      - 
+        type: Visual
+        elements: 
+          - 
+            type: Transform
+            translation: [ -0.03, -0.015, -0.795 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    geometry: 
+                      type: Resource
+                      uri: "resource/camera_base_1.scen"
+      - 
+        type: Collision
+        elements: 
+          - 
+            type: Transform
+            translation: [ -0.03, -0.015, -0.795 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    geometry: 
+                      type: Resource
+                      uri: "resource/camera_base_1.scen"
+    parent: base_link
+    translation: [ 0.03, -0.015, 0.7 ]
+    joint_name: camera_base_fix
+    joint_type: fixed
+    mass: 0.148824
+    center_of_mass: [ 0.01695, -0.00716312, 0.00185847 ]
+    inertia: [ 
+      5.6e-05, 9e-06, -2e-06, 
+      9e-06, 2.9e-05, 9e-06, 
+      -2e-06, 9e-06, 6e-05 ]
+  - 
+    name: "camera_jig_link"
+    elements: 
+      - 
+        type: Visual
+        elements: 
+          - 
+            type: Transform
+            translation: [ -0.055, -0.0045, -0.795 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    geometry: 
+                      type: Resource
+                      uri: "resource/camera_link_1.scen"
+      - 
+        type: Collision
+        elements: 
+          - 
+            type: Transform
+            translation: [ -0.055, -0.0045, -0.795 ]
+            elements: 
+              - 
+                type: Transform
+                scale: [ 0.001, 0.001, 0.001 ]
+                elements: 
+                  - 
+                    type: Shape
+                    geometry: 
+                      type: Resource
+                      uri: "resource/camera_link_1.scen"
+    parent: camera_base
+    translation: [ 0.025, -0.0105, 0 ]
+    rotation: [ 0, 1, 0, 70.4738 ]
+    joint_name: camera_link_jig_fix
+    joint_type: fixed
+    mass: 0.622353
+    center_of_mass: [ 0.0342283, 0.0103205, 0.0225308 ]
+    inertia: [ 
+      0.000405, -3e-06, -6.7e-05, 
+      -3e-06, 0.000203, -3e-06, 
+      -6.7e-05, -3e-06, 0.00041 ]
+  - 
+    name: "camera_bottom_screw_frame"
+    parent: camera_jig_link
+    translation: [ 0.039, 0.012, 0.013 ]
+    joint_name: camera_joint
+    joint_type: fixed
+    mass: 0.001
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [ 
+      1e-09, 0, 0, 
+      0, 1e-09, 0, 
+      0, 0, 1e-09 ]
+  - 
+    name: "camera_link"
+    elements: 
+      - 
+        type: Visual
+        elements: 
+          - 
+            type: Resource
+            uri: "resource/camera_mesh.scen"
+      - 
+        type: Collision
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0, -0.0175, 0 ]
+            elements: 
+              - 
+                type: Shape
+                geometry: 
+                  type: Box
+                  size: [ 0.02505, 0.09, 0.025 ]
+    parent: camera_bottom_screw_frame
+    translation: [ 0, 0.0175, 0.0125 ]
+    joint_name: camera_link_joint
+    joint_type: fixed
+    mass: 0.564
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [ 
+      0.00388124, 0, 0, 
+      0, 0.00049894, 0, 
+      0, 0, 0.00387926 ]
+  - 
+    name: "camera_depth_frame"
+    parent: camera_link
+    joint_name: camera_depth_joint
+    joint_type: fixed
+    mass: 0.001
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [ 
+      1e-09, 0, 0, 
+      0, 1e-09, 0, 
+      0, 0, 1e-09 ]
+  - 
+    name: "camera_depth_optical_frame"
+    parent: camera_depth_frame
+    rotation: [ -0.57735, 0.57735, -0.57735, 120 ]
+    joint_name: camera_depth_optical_joint
+    joint_type: fixed
+    mass: 0.001
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [ 
+      1e-09, 0, 0, 
+      0, 1e-09, 0, 
+      0, 0, 1e-09 ]
+  - 
+    name: "camera_left_ir_frame"
+    parent: camera_depth_frame
+    joint_name: camera_left_ir_joint
+    joint_type: fixed
+    mass: 0.001
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [ 
+      1e-09, 0, 0, 
+      0, 1e-09, 0, 
+      0, 0, 1e-09 ]
+  - 
+    name: "camera_left_ir_optical_frame"
+    parent: camera_left_ir_frame
+    rotation: [ -0.57735, 0.57735, -0.57735, 120 ]
+    joint_name: camera_left_ir_optical_joint
+    joint_type: fixed
+    mass: 0.001
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [ 
+      1e-09, 0, 0, 
+      0, 1e-09, 0, 
+      0, 0, 1e-09 ]
+  - 
+    name: "camera_right_ir_frame"
+    parent: camera_depth_frame
+    translation: [ 0, -0.05, 0 ]
+    joint_name: camera_right_ir_joint
+    joint_type: fixed
+    mass: 0.001
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [ 
+      1e-09, 0, 0, 
+      0, 1e-09, 0, 
+      0, 0, 1e-09 ]
+  - 
+    name: "camera_right_ir_optical_frame"
+    parent: camera_right_ir_frame
+    rotation: [ -0.57735, 0.57735, -0.57735, 120 ]
+    joint_name: camera_right_ir_optical_joint
+    joint_type: fixed
+    mass: 0.001
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [ 
+      1e-09, 0, 0, 
+      0, 1e-09, 0, 
+      0, 0, 1e-09 ]
+  - 
+    name: "camera_color_frame"
+    parent: camera_depth_frame
+    translation: [ 0, 0.015, 0 ]
+    joint_name: camera_color_joint
+    joint_type: fixed
+    mass: 0.001
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [ 
+      1e-09, 0, 0, 
+      0, 1e-09, 0, 
+      0, 0, 1e-09 ]
+  - 
+    name: "camera_color_optical_frame"
+    parent: camera_color_frame
+    rotation: [ -0.57735, 0.57735, -0.57735, 120 ]
+    joint_name: camera_color_optical_joint
+    joint_type: fixed
+    mass: 1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [ 
+      1e-09, 0, 0, 
+      0, 1e-09, 0, 
+      0, 0, 1e-09 ]
