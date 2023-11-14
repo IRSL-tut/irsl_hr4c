@@ -39,7 +39,7 @@ class KohakuModel(irsl_choreonoid.robot_util.RobotModelWrapped):
                                                  ('right_r_finger_joint',   'out-finger'),
                                                  )
                                  )
-        self.registerNamedPose('init',
+        self.registerNamedPose('initial',
                                [0, 0, 0, 0, 0, 0,  ## larm
                                 0, 0,  ## lhand
                                 0, 0, 0, 0, 0, 0,  ## rarm
@@ -51,6 +51,12 @@ class KohakuModel(irsl_choreonoid.robot_util.RobotModelWrapped):
                                 0, math.pi/2, math.pi/2, 0, 0, 0,  ## rarm
                                 0, 0,  ## rhand
                                 ])
+        self.registerNamedPose('manip',
+                               [ math.pi/6, math.pi/6, 2*math.pi/3, 0, math.pi/6, 0,  ## larm
+                                0, 0,  ## lhand
+                                -math.pi/6, math.pi/6, 2*math.pi/3, 0, math.pi/6, 0,  ## rarm
+                                0, 0,  ## rhand
+                               ])
         self.setDefaultPose()
     @property
     def lhand(self):
