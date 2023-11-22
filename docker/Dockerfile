@@ -1,4 +1,5 @@
-ARG BASE_IMAGE=repo.irsl.eiiris.tut.ac.jp/irsl_system:noetic
+#ARG BASE_IMAGE=repo.irsl.eiiris.tut.ac.jp/irsl_system:noetic
+ARG BASE_IMAGE=irslrepo/irsl_system:noetic
 
 FROM ${BASE_IMAGE}
 
