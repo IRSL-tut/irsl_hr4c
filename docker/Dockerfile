@@ -26,4 +26,6 @@ RUN apt update -q -qq && \
     
 RUN source /choreonoid_ws/install/setup.bash && catkin build
 
-## COPY 
+## COPY utility files
+RUN mkdir -p /myapps
+COPY docker/gazebo.sh /myapps
