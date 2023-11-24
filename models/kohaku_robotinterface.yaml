@@ -1,8 +1,10 @@
 robot_model:
   name: kohaku # ロボット名
-  url: 'file:///userdir/models/kohaku_dualarm.body'
   class: KohakuModel
-  import: models.kohaku_model
+  url: 'file:///myapps/models/kohaku_dualarm.body'
+  import: 'file:///myapps/models/kohaku_model.py'
+  #url: 'file:///userdir/models/kohaku_dualarm.body'
+  #import: models.kohaku_model
 
 # /kohaku_leftarm/follow_joint_trajectory
 # /kohaku_lefthand/follow_joint_trajectory

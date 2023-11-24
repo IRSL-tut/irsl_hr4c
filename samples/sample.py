@@ -2,7 +2,8 @@
 exec(open('/choreonoid_ws/install/share/irsl_choreonoid/sample/irsl_import.py').read())
 
 ##
-ri = RobotInterface('/userdir/models/kohaku_robotinterface.yaml')
+#ri = RobotInterface('/userdir/models/kohaku_robotinterface.yaml')
+ri = RobotInterface('/myapps/models/kohaku_robotinterface.yaml', connection=False)
 robot = ri.getRobotModel()
 
 ##

@@ -1,13 +1,15 @@
 #### import irsl
-import irsl_choreonoid.robot_util
-import math
+#import irsl_choreonoid.robot_util as ru
+#import math
 
-class KohakuModel(irsl_choreonoid.robot_util.RobotModelWrapped):
+class KohakuModel(ru.RobotModelWrapped):
     def __init__(self, robot):
+        import irsl_choreonoid.robot_util as ru
+        import math
         super().__init__(robot)
         self.registerEndEffector('larm', ## end-effector
                                  'left_hand_palm_link', ## tip-link
-                                 tip_link_to_eef = irsl_choreonoid.robot_util.make_coordinates({'pos': [0, 0, 0.07], 'angle-axis': [0, 1, 0, math.pi]}),
+                                 tip_link_to_eef = ru.make_coordinates({'pos': [0, 0, 0.07], 'angle-axis': [0, 1, 0, math.pi]}),
                                  joint_tuples = (('left_shoulder_yaw',   'shoulder-y'),
                                                  ('left_shoulder_pitch', 'shoulder-p'),
                                                  ('left_elbow_pitch',    'elbow-p'),
@@ -18,7 +20,7 @@ class KohakuModel(irsl_choreonoid.robot_util.RobotModelWrapped):
                                  )
         self.registerEndEffector('rarm', ## end-effector
                                  'right_hand_palm_link', ## tip-link
-                                 tip_link_to_eef = irsl_choreonoid.robot_util.make_coordinates({'pos': [0, 0, 0.07], 'angle-axis': [0, 1, 0, math.pi]}),
+                                 tip_link_to_eef = ru.make_coordinates({'pos': [0, 0, 0.07], 'angle-axis': [0, 1, 0, math.pi]}),
                                  joint_tuples = (('right_shoulder_yaw',   'shoulder-y'),
                                                  ('right_shoulder_pitch', 'shoulder-p'),
                                                  ('right_elbow_pitch',    'elbow-p'),

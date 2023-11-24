@@ -29,3 +29,4 @@ RUN source /choreonoid_ws/install/setup.bash && catkin build
 ## COPY utility files
 RUN mkdir -p /myapps
 COPY docker/gazebo.sh /myapps
+COPY models /myapps/models
