@@ -60,6 +60,10 @@ class KohakuModel(ru.RobotModelWrapped):
                                 0, 0,  ## rhand
                                ])
         self.setDefaultPose()
+
+    def setManipPose(self):
+        self.setNamedPose('manip')
+
     @property
     def lhand(self):
         return self.getLimb('lhand')
