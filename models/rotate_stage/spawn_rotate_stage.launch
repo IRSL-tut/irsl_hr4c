@@ -1,0 +1,46 @@
+<launch>
+  <arg name="translation_x" default="0.0" />
+  <arg name="translation_y" default="0.0" />
+  <arg name="translation_z" default="0.0225" />
+  <arg name="rotation_R" default="0.0" />
+  <arg name="rotation_P" default="0.0" />
+  <arg name="rotation_Y" default="0.0" />
+  <arg name="namespace" default="rotate_stage" />
+  <arg name="name" default="rotate_stage" />
+
+  <group ns="$(arg namespace)">
+    <param name="robot_description"
+           textfile="/myapps/models/rotate_stage/rotate_stage.urdf" />
+
+    <node name="rotate_stage_spawn_urdf" pkg="gazebo_ros" type="spawn_model"
+          args="-urdf -x $(arg translation_x) -y $(arg translation_y) -z $(arg translation_z) -R $(arg rotation_R) -P $(arg rotation_P) -Y $(arg rotation_Y) -model $(arg name) -param robot_description"/>
+
+    <rosparam>
+      joint_state_controller:
+        type: joint_state_controller/JointStateController
+        publish_rate: 50
+      rotate_stage_controller:
+        type: "position_controllers/JointTrajectoryController"
+        joints:
+          - joint0
+          - joint1
+        gains:
+          joint0:
+            p: 100
+            i: 10
+            d: 0.1
+          joint1:
+            p: 100
+            i: 10
+            d: 0.1
+    </rosparam>
+
+    <!-- joint_state_controller -->
+    <node name="rotate_stage_controller_spawner" pkg="controller_manager" type="spawner"
+          args="rotate_stage_controller joint_state_controller" respawn="false" output="screen"/>
+
+    <!-- robot state publisher -->
+    <node name="rotate_stage_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+          respawn="false" output="screen" />
+  </group>
+</launch>

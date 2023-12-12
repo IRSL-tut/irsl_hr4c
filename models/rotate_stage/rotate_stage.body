@@ -1,0 +1,132 @@
+format: ChoreonoidBody
+format_version: 2.0
+angle_unit: degree
+name: "rotate_stage"
+root_link: "ROOT_FRAME"
+links: 
+  - 
+    name: "ROOT_FRAME"
+    elements: 
+      - 
+        type: Transform
+        elements: 
+          - 
+            type: Transform
+            translation: [ -0.012, -0.017, 0 ]
+            elements: 
+              - 
+                type: Shape
+                appearance: 
+                  material: 
+                    diffuse: [ 0.21, 0.21, 0.21 ]
+                    emissive: [ 0.09, 0.09, 0.09 ]
+                geometry: 
+                  type: Box
+                  size: [ 0.0465, 0.034, 0.0285 ]
+          - 
+            type: Transform
+            rotation: [ 1, 0, 0, 180 ]
+            translation: [ -0.012, 0.127, -2.08189955855e-18 ]
+            elements: 
+              - 
+                type: Shape
+                appearance: 
+                  material: 
+                    diffuse: [ 0.21, 0.21, 0.21 ]
+                    emissive: [ 0.09, 0.09, 0.09 ]
+                geometry: 
+                  type: Box
+                  size: [ 0.0465, 0.034, 0.0285 ]
+          - 
+            type: Transform
+            translation: [ -0.012, 0.055, -0.01825 ]
+            elements: 
+              - 
+                type: Shape
+                appearance: 
+                  material: 
+                    diffuse: [ 0.42, 0.42, 0.42 ]
+                    emissive: [ 0.18, 0.18, 0.18 ]
+                geometry: 
+                  type: Box
+                  size: [ 0.0465, 0.178, 0.008 ]
+    joint_name: ROOT_FRAME
+    joint_type: free
+    mass: 0.0781665
+    center_of_mass: [ -0.012, 0.055, -0.00772992 ]
+    inertia: [ 
+      0.000334923, 0, 0, 
+      0, 2.36676e-05, 4.11087e-21, 
+      0, 4.11087e-21, 0.000255235 ]
+  - 
+    name: "STAGE0"
+    elements: 
+      - 
+        type: Transform
+        elements: 
+          - 
+            type: Transform
+            translation: [ 0.055, 0.055, 0 ]
+            elements: 
+              - 
+                type: Shape
+                appearance: 
+                  material: 
+                    diffuse: [ 0.28, 0.56, 0.56 ]
+                    emissive: [ 0.12, 0.24, 0.24 ]
+                geometry: 
+                  type: Box
+                  size: [ 0.132, 0.11, 0.0205 ]
+    parent: ROOT_FRAME
+    joint_name: joint0
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 0
+    joint_range: [ -180, 180 ]
+    max_joint_velocity: 1800
+    max_joint_effort: 100
+    joint_axis_inertia: 0.05
+    mass: 0.14883
+    center_of_mass: [ 0.055, 0.055, 0 ]
+    inertia: [ 
+      0.000155282, 0, 0, 
+      0, 0.000221313, 0, 
+      0, 0, 0.000244069 ]
+  - 
+    name: "STAGE1"
+    elements: 
+      - 
+        type: Transform
+        rotation: [ -1, -0, -0, 180 ]
+        translation: [ -0, 0.11, 1.34711147906e-17 ]
+        elements: 
+          - 
+            type: Transform
+            translation: [ -0.055, 0.055, 0 ]
+            elements: 
+              - 
+                type: Shape
+                appearance: 
+                  material: 
+                    diffuse: [ 0.56, 0.56, 0.28 ]
+                    emissive: [ 0.24, 0.24, 0.12 ]
+                geometry: 
+                  type: Box
+                  size: [ 0.132, 0.11, 0.0205 ]
+    parent: ROOT_FRAME
+    translation: [ 0, 0.11, 0 ]
+    rotation: [ 1, 0, 0, 180 ]
+    joint_name: joint1
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 1
+    joint_range: [ -180, 180 ]
+    max_joint_velocity: 1800
+    max_joint_effort: 100
+    joint_axis_inertia: 0.05
+    mass: 0.14883
+    center_of_mass: [ -0.055, 0.055, 6.73556e-18 ]
+    inertia: [ 
+      0.000155282, 0, 0, 
+      0, 0.000221313, 2.78674e-21, 
+      0, 2.78674e-21, 0.000244069 ]

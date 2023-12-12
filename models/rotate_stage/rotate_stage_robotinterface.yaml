@@ -1,0 +1,16 @@
+robot_model:
+  name: rotate_stage # ロボット名
+  url: 'file:///myapps/models/rotate_stage/rotate_stage.body'
+
+joint_groups:
+  -
+    name: default
+    topic: /rotate_stage/rotate_stage_controller/command
+    type: command
+    joint_names: [ 'joint0', 'joint1' ]
+
+devices:
+  -
+    topic: /rotate_stage/joint_states
+    class: JointState
+    name: joint_state
