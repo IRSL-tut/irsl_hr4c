@@ -8,6 +8,10 @@ class KohakuInterface(RobotInterface.RobotInterface):
     def __init__(self, file_name, **kwargs):
         RobotInterface.RobotInterface.__init__(self, file_name, **kwargs)
 
+        if not self.connected:
+            self.is_real_robot = False
+            return
+
         self.is_real_robot = self.isRealRobot()
 
         if self.is_real_robot:
