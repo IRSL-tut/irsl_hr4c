@@ -9,10 +9,11 @@ SHELL ["/bin/bash", "-c"]
 
 WORKDIR /hr4c_ws
 
+#    wstool set kohaku_ros_pkgs         https://github.com/QibiTechInc/kohaku_ros_pkgs.git          -y -t src --git && \
 RUN source /opt/ros/${ROS_DISTRO}/setup.bash && \
     wstool init src && \
     wstool set hr4c_common_pkgs        https://github.com/QibiTechInc/hr4c_common_pkgs.git         -y -t src --git && \
-    wstool set kohaku_ros_pkgs         https://github.com/QibiTechInc/kohaku_ros_pkgs.git          -y -t src --git && \
+    wstool set kohaku_ros_pkgs         https://github.com/IRSL-tut/kohaku_ros_pkgs.git             -y -t src --git && \
     wstool set kohaku_ros_examples     https://github.com/QibiTechInc/kohaku_ros_examples.git      -y -t src --git && \
     wstool set realsense_gazebo_plugin https://github.com/pal-robotics/realsense_gazebo_plugin.git -y -t src --git && \
     wstool set realsense_ros           https://github.com/IntelRealSense/realsense-ros.git         -y -t src --git -v ros1-legacy && \
