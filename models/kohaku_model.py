@@ -1,12 +1,12 @@
-#### import irsl
-#import irsl_choreonoid.robot_util as ru
-#import math
+import os
+import math
+import irsl_choreonoid.robot_util as ru
 
-class KohakuModel(ru.RobotModelWrapped):
-    def __init__(self, robot):
-        import irsl_choreonoid.robot_util as ru
-        import math
-        super().__init__(robot)
+class KohakuModel(ru.ImportedRobotModel):
+    def __init__(self, robot=None, item=True, world=False, **kwargs):
+        super().__init__(robot=robot, item=item, world=world, **kwargs)
+
+    def _init_ending(self, **kwargs): ## override
         self.registerEndEffector('larm', ## end-effector
                                  'left_hand_palm_link', ## tip-link
                                  tip_link_to_eef = ru.make_coordinates({'pos': [0, 0, 0.07], 'angle-axis': [0, 1, 0, math.pi]}),
@@ -70,3 +70,9 @@ class KohakuModel(ru.RobotModelWrapped):
     @property
     def rhand(self):
         return self.getLimb('rhand')
+
+### settings of model_file
+KohakuModel.model_file = f'{os.path.dirname(__file__)}/kohaku_dualarm.body'
+
+### robot_class: 
+robot_class = KohakuModel
